@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>member</title>
+</head>
+<body>
+<h1>Register Form</h1>
+<br>
+<br><br>
+<form th:action="@{/member/register}" method="post">
+userId : <input type="text" id="iptUserId" name="userId" value="jungseoyeon" /><br>
+password : <input type="text" id="iptPassword" name="password" value="1234" /><br>
+job : <input type="text" id="iptJob" name="job" value="developer" /><br>
+<input type="submit" value="등록" />
+</form>
+</body>
+</html>
