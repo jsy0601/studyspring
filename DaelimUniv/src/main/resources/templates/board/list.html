@@ -2,9 +2,34 @@
 
 <head>
 <meta charset="UTF-8">
-<title>board</title>
+<title>home</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-<h1>list</h1>
+<h2>Board</h2>
+<a href="register.html" th:href="@{/board/register}">New</a>
+<table border="1">
+	<tr>
+		<th align="center" width="80">NO</th>
+		<th align="center" width="320">TITLE</th>
+		<th align="center" width="100">WRITER</th>
+	</tr>
+	
+	<tr th:if=${#lists.isEmpty(list)}>
+		<td colspan="4">
+			List is empty.
+		</td>
+	</tr>
+	
+	<tr th:each="board : ${list}">
+		<td align="center" th:text="${board.boardNo}">${board.boardNo}</td>
+		<td align="left">
+			<a href="read.html"
+				th:href="@{|/board/read?boardNo=${board.boardNo}|}"
+				th:text="${board.title}">${board.title}</a>
+		</td>
+		<td align="right" th:text="${board.writer}">${board.writer}</td>
+	</tr>
+</table>
 </body>
 </html>
