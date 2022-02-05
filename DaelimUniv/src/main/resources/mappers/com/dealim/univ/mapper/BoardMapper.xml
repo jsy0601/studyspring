@@ -19,32 +19,34 @@
 						, reg_date DESC
 		]]>
 	</select>
+	
 
-	<select id="read"
-			parameterType="java.lang.Integer"
-			resultType="com.daelim.univ.domain.Board">
-		SELECT	board_no	AS boardNo
-				, title
-				, content
-				, writer
-				, reg_date	AS regDate
-		FROM	board
-		WHERE	board_no = #{boardNo}
-	</select>
- 	
+	<select id="read" parameterType="java.lang.Integer"
+         resultType="com.dealim.univ.domain.Board">
+      SELECT   board_no   AS boardNo
+            , title
+            , content
+            , writer
+            , reg_date   AS regDate
+      FROM   board
+      WHERE   board_no = #{boardNo}
+   </select> 
+
+	
 	<update id="update"
-			parameterType="com.daelim.univ.domain.Board">
-		UPDATE	board
-		SET		title		= #{title}
-				, content	= #{content}
-		WHERE	board_no	= #{boardNo}
-	</update>
+			parameterType="com.dealim.univ.domain.Board">
+			UPDATE  board
+			SET 	title		= #{title}
+					, content 	= #{content}
+			WHERE 	board_no 	= #{boardNo}
+	</update> 
 	
 	<delete id="delete"
 			parameterType="java.lang.Integer">
-		DELETE FROM board
-		WHERE		board_no = #{boardNo}
+			DELETE FROM board
+			WHERE 	board_no = #{boardNo}
 	</delete>
+	
 
 	<insert id="create">
 		INSERT INTO board
@@ -59,6 +61,6 @@
 			, #{content}
 			, #{writer}
 		) 
-	</insert>
+	</insert> 
 
 </mapper>
