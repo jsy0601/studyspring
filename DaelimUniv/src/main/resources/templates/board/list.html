@@ -5,29 +5,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-<h2>List</h2>
-<a href="register.html" th:href="@{/board/register}">New</a>
+<h2>지출 목록</h2>
+<a href="register.html" th:href="@{/board/register}">등록</a>
 <table border="1">
 	<tr>
-		<th align="center" width="80">NO</th>
-		<th align="center" width="320">TITLE</th>
-		<th align="center" width="100">WRITER</th>
+		<th align="center" width="80">#</th>
+		<th align="center" width="100">구분명</th>
+		<th align="center" width="100">코드명</th>
+		<th align="center" width="200">설명</th>
+		<th align="center" width="100">금액</th>
+		<th align="center" width="100">지출일자</th>
+		<th align="center" width="100">등록일자</th>
 	</tr>
 	
 	<tr th:if=${#lists.isEmpty(list)}>
-		<td colspan="3">
+		<td colspan="7">
 			List is empty.
 		</td>
 	</tr>
 	
 	<tr th:each="board : ${list}">
 		<td align="center" th:text="${board.boardNo}">${board.boardNo}</td>
-		<td align="left">
+		<td align="center">
 			<a href="read.html" 
 				th:href="@{|/board/read?boardNo=${board.boardNo}|}"
-				th:text="${board.title}">${board.title}</a>
+				th:text="${board.sort}">${board.sort}</a>
 		</td>
-		<td align="right" th:text="${board.writer}">${board.writer}</td>
+		<td align="center" th:text="${board.code}">${board.code}</td>
+		<td align="left" th:text="${board.content}">${board.content}</td>
+		<td align="right" th:text="${board.cost}">${board.cost}</td>
+		<td align="center" th:text="${board.expDate}">${board.expDate}</td>
+		<td align="center" th:text="${board.regDate}">${board.regDate}</td>
 	</tr>
 </table>
 </body>

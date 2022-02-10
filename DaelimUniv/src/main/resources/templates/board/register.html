@@ -24,35 +24,77 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h2>Register</h2>
+<h2>지출 등록</h2>
 
 <form id="board" action="success.html" th:action="@{/board/register}" 
 		th:object="${board}" method="POST">
 	<table class="table">
 		<tr>
-			<td>Title</td>
-			<td><input type="text" name="title" class="form-control" th:field="*{title}" /></td>
+			<td>지출일자</td>
+			<td><input type="date" name="expDate" class="form-control" th:field="*{expDate}" /></td>
 			<td>
 				<font color="red">
-					<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
-						title의 에러 메시지
+					<span th:if="${#fields.hasErrors('expDate')}" th:errors="*{expDate}">
+						지출일자의 에러 메시지
 					</span>
 				</font>
 			</td>
 		</tr>
 		<tr>
-			<td>Writer</td>
-			<td><input type="text" name="writer" class="form-control" th:field="*{writer}" /></td>
+			<td>공통코드구분</td>
+			<td>
+				<select name="sort" class="form-control" th:field="*{sort}" >
+					<option value="주거">주거</option>
+					<option value="식비">식비</option>
+					<option value="의복비">의복비</option>
+					<option value="자기계발">자기계발</option>
+					<option value="의료">의료</option>
+					<option value="교통">교통</option>
+					<option value="오락">오락</option>
+					<option value="기타" >기타</option>
+					<option value="저축">저축</option>
+					<option value="공공고정비">공공고정비</option>
+					<option value="개인고정비">개인고정비</option>
+				</select>
+			</td>
 			<td>
 				<font color="red">
-					<span th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}">
-						writer의 에러 메시지
+					<span th:if="${#fields.hasErrors('sort')}" th:errors="*{sort}">
+						공통코드구분의 에러 메시지
 					</span>
 				</font>
 			</td>
 		</tr>
 		<tr>
-			<td>Content</td>
+			<td>공통코드</td>
+			<td>
+				<select name="code" class="form-control" th:field="*{code}" >
+					<option value="월세">월세</option>
+					<option value="전세">전세</option>
+					<option value="주거관리비">주거관리비</option>
+				</select>
+			</td>
+			<td>
+				<font color="red">
+					<span th:if="${#fields.hasErrors('code')}"  th:errors="*{code}">
+						공통코드의 에러 메시지
+					</span>
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td>비용</td>
+			<td><input type="number" name="cost" class="form-control" th:field="*{cost}"></input></td>
+			<td>
+				<font color="red">
+					<span th:if="${#fields.hasErrors('cost')}"  th:errors="*{cost}">
+						비용의 에러 메시지
+					</span>
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td>설명</td>
 			<td><textarea name="content" class="form-control" th:field="*{content}"></textarea></td>
 			<td>
 				<font color="red">

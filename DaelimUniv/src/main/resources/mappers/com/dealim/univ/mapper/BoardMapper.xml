@@ -5,13 +5,16 @@
 <!-- 게시판 -->	
 <mapper namespace="com.dealim.univ.mapper.BoardMapper">
 
+	<!-- 목록 -->
 	<select id="list"
 			resultType="com.dealim.univ.domain.Board">
 		<![CDATA[
 			SELECT	board_no 	AS boardNo
-					, title
+					, expDate
+					, sort
+					, code
+					, cost
 					, content
-					, writer
 					, reg_date	AS regDate
 			FROM	board
 			WHERE	board_no > 0
@@ -20,46 +23,56 @@
 		]]>
 	</select>
 	
-
+	<!-- 읽기 -->
 	<select id="read" parameterType="java.lang.Integer"
          resultType="com.dealim.univ.domain.Board">
-      SELECT   board_no   AS boardNo
-            , title
-            , content
-            , writer
-            , reg_date   AS regDate
-      FROM   board
-      WHERE   board_no = #{boardNo}
+      SELECT	board_no 	AS boardNo
+				, expDate
+				, sort
+				, code
+				, cost
+				, content
+                , reg_date   AS regDate
+      FROM  	board
+      WHERE     board_no = #{boardNo}
    </select> 
 
-	
+	<!-- 수정 -->
 	<update id="update"
 			parameterType="com.dealim.univ.domain.Board">
 			UPDATE  board
-			SET 	title		= #{title}
-					, content 	= #{content}
+			SET 	expDate 	= #{expDate}
+					, sort	 	= #{sort}
+					, code		= #{code}
+					, cost		= #{cost}
+					, content	= #{content}
 			WHERE 	board_no 	= #{boardNo}
 	</update> 
 	
+	<!-- 삭제 -->
 	<delete id="delete"
 			parameterType="java.lang.Integer">
 			DELETE FROM board
 			WHERE 	board_no = #{boardNo}
 	</delete>
 	
-
+	<!-- 등록 -->
 	<insert id="create">
 		INSERT INTO board
 		(
-			title
+			expDate
+			, sort
+			, code
+			, cost
 			, content
-			, writer
 		) 
 		VALUES
 		(
-			#{title}
+			#{expDate}
+			, #{sort}
+			, #{code}
+			, #{cost}
 			, #{content}
-			, #{writer}
 		) 
 	</insert> 
 

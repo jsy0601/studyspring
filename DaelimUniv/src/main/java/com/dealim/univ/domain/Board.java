@@ -3,9 +3,11 @@ package com.dealim.univ.domain;
 public class Board {
 	
 	private int boardNo;
-	private String title;
+	private String expDate;
+	private String sort;
+	private String code;
+	private String cost;
 	private String content;
-	private String writer;
 	private String regDate;
 	
 	public int getBoardNo() {
@@ -14,23 +16,35 @@ public class Board {
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public String getTitle() {
-		return title;
+	public String getExpDate() {
+		return expDate;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getCost() {
+		return cost;
+	}
+	public void setCost(String cost) {
+		this.cost = cost;
 	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -41,8 +55,8 @@ public class Board {
 	
 	@Override
 	public String toString() {
-		return "Board [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regDate=" + regDate + "]";
+		return "Board [boardNo=" + boardNo + ", expDate=" + expDate + ", sort=" + sort + ", code=" + code + ", cost="
+				+ cost + ", content=" + content + ", regDate=" + regDate + "]";
 	}
 	
 }

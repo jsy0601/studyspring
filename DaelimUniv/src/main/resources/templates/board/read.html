@@ -36,17 +36,27 @@ $(document).ready(function() {
 	
 	<table>
 		<tr>
-			<td>Title</td>
-			<td><input type="text" name="title" 
-						th:field="*{title}" readonly="readonly" /></td>
+			<td>지출일자</td>
+			<td><input type="text" name="expDate" 
+						th:field="*{expDate}" readonly="readonly" /></td>
 		</tr>
 		<tr>
-			<td>Writer</td>
-			<td><input type="text" name="writer" 
-						th:field="*{writer}" readonly="readonly" /></td>
+			<td>공통코드구분</td>
+			<td><input type="text" name="sort" 
+						th:field="*{sort}" readonly="readonly" /></td>
 		</tr>
 		<tr>
-			<td>Content</td>
+			<td>공통코드</td>
+			<td><input name="code" 
+						th:field="*{code}" readonly="readonly"></input></td>
+		</tr>
+		<tr>
+			<td>비용</td>
+			<td><input name="cost" 
+						th:field="*{cost}" readonly="readonly"></input></td>
+		</tr>
+		<tr>
+			<td>설명</td>
 			<td><textarea name="content" 
 						th:field="*{content}" readonly="readonly"></textarea></td>
 		</tr>
